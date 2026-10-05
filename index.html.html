@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lorong Waktu: Blog Sejarah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+:root{--bg:#F3F2FB;--surface:#FFFFFF;--ink:#16163A;--muted:#5A5A7E;--line:#D9D7EE;--acc:#5B45E0;--acc2:#C77800;--ok:#0F8A5F;--bad:#C2294B;--glow:rgba(91,69,224,.18)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A0D22;--surface:#12163A;--ink:#EAEAFF;--muted:#9EA2D0;--line:#262B5E;--acc:#8F7DFF;--acc2:#FFB454;--ok:#4FE0A8;--bad:#FF6B8A;--glow:rgba(143,125,255,.28)}}
+:root[data-theme="dark"]{--bg:#0A0D22;--surface:#12163A;--ink:#EAEAFF;--muted:#9EA2D0;--line:#262B5E;--acc:#8F7DFF;--acc2:#FFB454;--ok:#4FE0A8;--bad:#FF6B8A;--glow:rgba(143,125,255,.28)}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc2);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+nav b{font:700 18px "Space Grotesk",sans-serif}
+nav div{display:flex;gap:6px;align-items:center}
+nav a,.tbtn{text-decoration:none;padding:8px 14px;border-radius:999px;font-size:15px;border:1px solid transparent;background:none;color:var(--ink);cursor:pointer;font-family:inherit}
+nav a:hover,.tbtn:hover{border-color:var(--line)}
+.hero{position:relative;padding:56px 0 40px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-40% -10% auto;height:120%;background:radial-gradient(60% 50% at 70% 30%,var(--glow),transparent 70%),linear-gradient(var(--line) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/48px 48px;opacity:.55;-webkit-mask-image:radial-gradient(70% 70% at 60% 30%,#000,transparent);mask-image:radial-gradient(70% 70% at 60% 30%,#000,transparent);z-index:0}
+.hero>*{position:relative;z-index:1}
+h1{font-size:clamp(40px,8vw,84px);font-weight:700;letter-spacing:-.03em;max-width:12ch}
+.lead{max-width:56ch;color:var(--muted);font-size:19px;margin:20px 0 0}
+.tl{margin-top:44px;border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:26px 0 0;box-shadow:0 0 60px -20px var(--glow)}
+.track{position:relative;display:flex;gap:0;overflow-x:auto;padding:28px 24px 18px;scrollbar-width:thin}
+.track::before{content:"";position:absolute;left:24px;right:24px;top:40px;height:2px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.node{flex:0 0 118px;background:none;border:0;color:var(--ink);text-align:left;cursor:pointer;padding:0;font-family:inherit;position:relative}
+.node i{display:block;width:26px;height:26px;border-radius:50%;background:var(--bg);border:3px solid var(--acc);margin-bottom:12px;transition:.25s}
+.node[aria-pressed="true"] i{background:var(--acc2);border-color:var(--acc2);box-shadow:0 0 0 7px var(--glow),0 0 22px var(--acc2)}
+.node b{display:block;font:700 18px "Space Grotesk",sans-serif}
+.node span{font-size:13px;color:var(--muted);line-height:1.3;display:block}
+.tl-detail{border-top:1px solid var(--line);padding:20px 24px 24px;min-height:96px;color:var(--ink)}
+.tl-detail strong{font-family:"Space Grotesk",sans-serif;font-size:20px;display:block;margin-bottom:4px}
+section{padding:64px 0 8px}
+h2{font-size:clamp(30px,5vw,46px);letter-spacing:-.02em}
+.sub{color:var(--muted);margin:10px 0 28px;max-width:58ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 24px;transition:box-shadow .3s,border-color .3s}
+details[open]{border-color:var(--acc);box-shadow:0 0 40px -12px var(--glow)}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary h3{font-size:23px;margin-bottom:8px}
+summary small{color:var(--acc);font-weight:500;font-size:14px}
+summary p{margin:6px 0 0;color:var(--muted);font-size:15px}
+details .body{margin-top:16px;border-top:1px dashed var(--line);padding-top:14px}
+.body h4{font:700 16px "Space Grotesk",sans-serif;margin:16px 0 2px;color:var(--acc)}
+.body h4:first-child{margin-top:0}
+details ul{padding-left:20px;margin:8px 0}
+details li{margin:6px 0}
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 0 70px -24px var(--glow)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{border:1px solid var(--line);background:none;color:var(--ink);padding:8px 16px;border-radius:999px;cursor:pointer;font:500 15px "IBM Plex Sans",sans-serif}
+.chip[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.bar{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:22px}
+.bar div{height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .4s}
+.q{font:700 clamp(21px,3.4vw,28px)/1.25 "Space Grotesk",sans-serif;margin-bottom:20px;max-width:34ch}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:400 17px "IBM Plex Sans",sans-serif;cursor:pointer;transition:.2s}
+.opt:hover:not(:disabled){border-color:var(--acc);transform:translateX(4px)}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--bg))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,var(--bg))}
+.opt:disabled{cursor:default}
+.fb{margin-top:16px;min-height:52px;color:var(--muted)}
+.btn{margin-top:14px;padding:12px 24px;border-radius:999px;border:0;background:var(--acc);color:#fff;font:500 16px "IBM Plex Sans",sans-serif;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.score{font:700 64px "Space Grotesk",sans-serif;color:var(--acc2)}
+footer{margin-top:72px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:560px){body{font-size:16px}.quiz{padding:20px}nav a.hide{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><b>Lorong Waktu</b><div><a class="hide" href="#materi">Materi</a><a class="hide" href="#kuis">Kuis</a><button class="tbtn" id="theme" aria-label="Ganti tema terang atau gelap">Ganti tema</button></div></nav>
+
+<header class="hero">
+<h1>Sejarah Indonesia, dari masa ke masa</h1>
+<p class="lead">Blog belajar sejarah untuk murid-muridku. Baca ringkasan materinya, jelajahi garis waktunya, lalu uji pemahamanmu lewat kuis.</p>
+<div class="tl" aria-label="Garis waktu sejarah Indonesia">
+<div class="track" id="track"></div>
+<div class="tl-detail" id="detail" aria-live="polite"></div>
+</div>
+</header>
+
+<section id="materi">
+<h2>Materi pembelajaran</h2>
+<p class="sub">Klik kartu untuk membuka ringkasan. Baca dulu sebelum mengerjakan kuis.</p>
+<div class="grid">
+<details><summary><small>Abad ke-4 sampai ke-15</small><h3>Kerajaan Hindu-Buddha</h3><p>Dari Kutai sampai Majapahit.</p></summary><div class="body"><h4>Kerajaan awal</h4><ul><li><b>Kutai</b> (Kalimantan Timur, sekitar abad ke-4): kerajaan Hindu tertua. Raja Mulawarman dikenal lewat tujuh prasasti Yupa.</li><li><b>Tarumanegara</b> (Jawa Barat, abad ke-5): Raja Purnawarman meninggalkan prasasti Ciaruteun dan Tugu yang memuat jejak kaki dan pembangunan saluran air.</li></ul><h4>Sriwijaya dan Mataram Kuno</h4><ul><li><b>Sriwijaya</b> (abad ke-7 sampai ke-13) berpusat di sekitar Palembang. Bukti tertuanya adalah Prasasti Kedukan Bukit (683 M). Kekuatannya ada di armada laut, kendali Selat Malaka, dan pusat belajar agama Buddha yang dikunjungi pendeta Tiongkok I-Tsing.</li><li><b>Mataram Kuno</b> (Jawa Tengah) diperintah wangsa Sanjaya dan Syailendra. Peninggalannya adalah Candi Borobudur (Buddha) dan Prambanan (Hindu).</li></ul><h4>Singasari dan Majapahit</h4><ul><li><b>Singasari</b> didirikan Ken Arok (1222) dan mencapai puncak di bawah Kertanegara.</li><li><b>Majapahit</b> berdiri 1293 oleh Raden Wijaya. Di masa Hayam Wuruk (1350 sampai 1389) dan Mahapatih Gajah Mada, wilayahnya meluas lewat Sumpah Palapa.</li><li>Karya penting: kitab <i>Nagarakretagama</i> (Mpu Prapanca) dan <i>Sutasoma</i> (Mpu Tantular) yang memuat semboyan "Bhinneka Tunggal Ika".</li></ul></div></details>
+<details><summary><small>Abad ke-13 sampai ke-17</small><h3>Kerajaan Islam</h3><p>Jalur dagang, dakwah, dan kesultanan.</p></summary><div class="body"><h4>Bagaimana Islam masuk</h4><ul><li>Islam menyebar terutama lewat perdagangan, pernikahan, dakwah, dan pendidikan. Ada beberapa teori asal: Gujarat, Mekah, Persia, dan Tiongkok.</li><li>Di Jawa, para <b>Walisongo</b> berdakwah dengan memanfaatkan seni dan budaya lokal seperti wayang dan gamelan.</li></ul><h4>Kesultanan penting</h4><ul><li><b>Samudra Pasai</b> (Aceh Utara, abad ke-13): kerajaan Islam pertama di Indonesia.</li><li><b>Demak</b> (akhir abad ke-15, Raden Patah): kerajaan Islam pertama di Jawa.</li><li><b>Aceh Darussalam</b> jaya di bawah Sultan Iskandar Muda (1607 sampai 1636).</li><li><b>Mataram Islam</b>: Sultan Agung dua kali menyerang VOC di Batavia (1628 dan 1629).</li><li><b>Gowa-Tallo</b>: Sultan Hasanuddin, "Ayam Jantan dari Timur", melawan VOC hingga Perjanjian Bongaya (1667).</li><li><b>Ternate dan Tidore</b> di Maluku bersaing dalam perdagangan rempah.</li></ul></div></details>
+<details><summary><small>1511 sampai 1900</small><h3>Masa Kolonial</h3><p>Dari Portugis sampai Tanam Paksa.</p></summary><div class="body"><h4>Kedatangan bangsa Eropa</h4><ul><li>Portugis merebut Malaka pada 1511 demi rempah-rempah.</li><li><b>VOC</b> berdiri 1602. Pada 1619 J.P. Coen merebut Jayakarta dan membangun Batavia sebagai pusat kekuasaannya.</li><li>VOC bubar tahun 1799 karena korupsi dan utang besar.</li></ul><h4>Penjajahan dan perlawanan</h4><ul><li><b>Tanam Paksa</b> (1830, Van den Bosch) mewajibkan rakyat menyisihkan lahan untuk tanaman ekspor. Banyak rakyat kelaparan, dan kritiknya terkenal lewat novel <i>Max Havelaar</i> (Multatuli, 1860).</li><li>Perlawanan besar: Perang Padri (1821 sampai 1837), Perang Diponegoro (1825 sampai 1830), dan Perang Aceh (1873 sampai 1904).</li><li>Pada 1901 Belanda menerapkan <b>Politik Etis</b> (irigasi, edukasi, emigrasi). Pendidikan inilah yang melahirkan kaum terpelajar pelopor pergerakan nasional.</li></ul></div></details>
+<details><summary><small>1908 sampai 1928</small><h3>Kebangkitan Nasional</h3><p>Organisasi, pers, dan sumpah persatuan.</p></summary><div class="body"><h4>Organisasi pergerakan</h4><ul><li><b>Budi Utomo</b> (20 Mei 1908) digagas dr. Wahidin Sudirohusodo dan dr. Soetomo di STOVIA.</li><li><b>Sarekat Islam</b> (1912, H.O.S. Tjokroaminoto) tumbuh dari Sarekat Dagang Islam. <b>Muhammadiyah</b> berdiri 1912 (K.H. Ahmad Dahlan) dan <b>NU</b> pada 1926.</li><li><b>Indische Partij</b> (1912) oleh Tiga Serangkai: Douwes Dekker, Tjipto Mangunkusumo, dan Suwardi Suryaningrat (Ki Hajar Dewantara).</li><li><b>Taman Siswa</b> (1922) memberi pendidikan bagi rakyat. <b>PNI</b> (1927) dipimpin Soekarno dan menuntut Indonesia merdeka.</li></ul><h4>Sumpah Pemuda</h4><ul><li>Kongres Pemuda I digelar 1926, dan Kongres Pemuda II pada 27 sampai 28 Oktober 1928.</li><li>Hasilnya: satu tanah air, satu bangsa, dan satu bahasa persatuan. Di sana lagu Indonesia Raya karya W.R. Supratman pertama kali diperdengarkan.</li></ul></div></details>
+<details><summary><small>1942 sampai 1945</small><h3>Pendudukan Jepang</h3><p>Tiga setengah tahun yang mengubah segalanya.</p></summary><div class="body"><h4>Kebijakan Jepang</h4><ul><li>Belanda menyerah di Kalijati pada 8 Maret 1942. Jepang mula-mula menarik simpati lewat Gerakan 3A, lalu membentuk PUTERA (1943) dan Jawa Hokokai (1944).</li><li>Jepang melatih pemuda dalam <b>PETA</b> (1943) dan Heiho, yang kelak menjadi modal kekuatan militer Indonesia.</li><li>Rakyat menderita akibat kerja paksa (<b>romusha</b>) dan penyerahan hasil bumi.</li></ul><h4>Menuju kemerdekaan</h4><ul><li>BPUPKI dibentuk dan bersidang mulai 29 April 1945. Pada 1 Juni 1945 Soekarno menyampaikan gagasan Pancasila.</li><li>PPKI dibentuk 7 Agustus 1945. Setelah bom atom jatuh di Hiroshima (6 Agustus) dan Nagasaki (9 Agustus), Jepang menyerah kepada Sekutu pada 15 Agustus 1945.</li></ul></div></details>
+<details><summary><small>16 sampai 18 Agustus 1945</small><h3>Proklamasi Kemerdekaan</h3><p>Detik-detik menuju merdeka.</p></summary><div class="body"><h4>Menjelang proklamasi</h4><ul><li>Golongan muda mendesak proklamasi segera dilakukan tanpa menunggu Jepang. Pada 16 Agustus 1945 mereka membawa Soekarno dan Hatta ke <b>Rengasdengklok</b>.</li><li>Malam harinya, naskah proklamasi disusun di rumah Laksamana Maeda oleh Soekarno, Hatta, dan Ahmad Soebardjo, lalu diketik oleh <b>Sayuti Melik</b>.</li></ul><h4>Hari proklamasi</h4><ul><li>Pada 17 Agustus 1945, Soekarno membacakan proklamasi di Jalan Pegangsaan Timur 56, Jakarta, atas nama bangsa Indonesia bersama Hatta. Bendera Merah Putih dijahit Fatmawati.</li><li>Sehari kemudian, PPKI mengesahkan UUD 1945 dan memilih Soekarno-Hatta sebagai presiden dan wakil presiden.</li></ul></div></details>
+<details><summary><small>1945 sampai 1949</small><h3>Mempertahankan Kemerdekaan</h3><p>Perang dan diplomasi.</p></summary><div class="body"><h4>Pertempuran</h4><ul><li><b>10 November 1945</b>: Pertempuran Surabaya melawan Sekutu dan NICA, kini diperingati sebagai Hari Pahlawan.</li><li><b>24 Maret 1946</b>: Bandung Lautan Api.</li><li><b>1 Maret 1949</b>: Serangan Umum di Yogyakarta, yang menunjukkan kepada dunia bahwa Indonesia masih ada.</li></ul><h4>Diplomasi</h4><ul><li>Perundingan Linggarjati (1946) dan Renville (1948) belum menyelesaikan sengketa. Belanda melancarkan Agresi Militer I (1947) dan II (1948).</li><li>Lewat <b>Konferensi Meja Bundar</b>, Belanda menyerahkan kedaulatan pada <b>27 Desember 1949</b>.</li></ul></div></details>
+<details><summary><small>1950 sampai 1966</small><h3>Orde Lama</h3><p>Demokrasi liberal sampai Demokrasi Terpimpin.</p></summary><div class="body"><h4>Demokrasi Liberal (1950 sampai 1959)</h4><ul><li>Kabinet silih berganti dan sering jatuh karena persaingan partai, sehingga pemerintahan kurang stabil.</li><li><b>Pemilu 1955</b> adalah pemilihan umum pertama di Indonesia, untuk memilih anggota DPR dan Konstituante.</li><li><b>Konferensi Asia-Afrika</b> digelar di Bandung pada 18 sampai 24 April 1955 dan menginspirasi negara-negara yang baru merdeka.</li></ul><h4>Demokrasi Terpimpin (1959 sampai 1966)</h4><ul><li><b>Dekrit Presiden 5 Juli 1959</b>: kembali ke UUD 1945 dan membubarkan Konstituante.</li><li>Soekarno menekankan kepemimpinan sentral dan gagasan Nasakom. Indonesia ikut memelopori Gerakan Non-Blok (1961).</li><li>Operasi Trikora (1961) bertujuan membebaskan Irian Barat. Konfrontasi dengan Malaysia dikenal sebagai Dwikora (1964).</li><li>Krisis politik dan ekonomi memuncak setelah peristiwa G30S 1965, dan pada 11 Maret 1966 terbit <b>Supersemar</b>.</li></ul></div></details>
+<details><summary><small>1966 sampai 1998</small><h3>Orde Baru</h3><p>Stabilitas, pembangunan, dan pemerintahan Soeharto.</p></summary><div class="body"><h4>Ciri pemerintahan</h4><ul><li>Soeharto menerima Supersemar (11 Maret 1966) dan menjadi presiden hingga 1998. Pemerintahan berfokus pada stabilitas politik dan pembangunan ekonomi.</li><li><b>Dwifungsi ABRI</b> memberi peran militer di bidang pertahanan dan sosial-politik.</li><li>Partai disederhanakan menjadi tiga (PPP, Golkar, PDI) pada 1973, dan Pancasila dijadikan asas tunggal (1985).</li></ul><h4>Pembangunan dan masalahnya</h4><ul><li><b>Repelita</b> (Rencana Pembangunan Lima Tahun) dimulai 1969 dengan Trilogi Pembangunan: stabilitas nasional, pertumbuhan ekonomi, dan pemerataan.</li><li>Indonesia mencapai swasembada beras pada 1984 dan ekonominya tumbuh pesat.</li><li>Di sisi lain, kebebasan pers dan oposisi dibatasi, sedangkan korupsi, kolusi, dan nepotisme (KKN) meluas.</li></ul></div></details>
+<details><summary><small>1998 sampai sekarang</small><h3>Reformasi</h3><p>Runtuhnya Orde Baru dan demokratisasi.</p></summary><div class="body"><h4>Jatuhnya Orde Baru</h4><ul><li><b>Krisis moneter 1997</b> membuat rupiah anjlok, harga melambung, dan banyak perusahaan bangkrut.</li><li>Mahasiswa menggelar demonstrasi besar. Pada 12 Mei 1998 empat mahasiswa Universitas Trisakti gugur, disusul kerusuhan di sejumlah kota.</li><li><b>Soeharto mundur pada 21 Mei 1998</b> dan B.J. Habibie menjadi presiden.</li></ul><h4>Hasil Reformasi</h4><ul><li>UUD 1945 diamandemen empat kali (1999 sampai 2002), termasuk pembatasan masa jabatan presiden.</li><li>Pemilu 1999 berlangsung bebas, dan sejak 2004 presiden dipilih langsung oleh rakyat.</li><li>Muncul otonomi daerah (2001), kebebasan pers, dan lembaga antikorupsi seperti KPK.</li><li>Habibie juga memberi kesempatan referendum bagi Timor Timur pada 1999.</li></ul></div></details>
+</div>
+</section>
+
+<section id="kuis">
+<h2>Kuis sejarah</h2>
+<p class="sub">Pilih topik, jawab pertanyaannya, dan lihat penjelasan di setiap jawaban.</p>
+<div class="quiz">
+<div class="chips" id="chips" role="group" aria-label="Pilih topik kuis"></div>
+<div class="bar" aria-hidden="true"><div id="prog"></div></div>
+<div id="stage"></div>
+</div>
+</section>
+
+<footer>Dibuat untuk murid-muridku. Selamat belajar dan tetap penasaran.</footer>
+</div>
+
+<script>
+const events=[
+["±400 M","Kutai","Kerajaan Hindu tertua di Indonesia. Prasasti Yupa menyebut Raja Mulawarman."],
+["Abad ke-7","Sriwijaya","Kerajaan maritim berpusat di sekitar Palembang. Menguasai jalur perdagangan Selat Malaka."],
+["1293","Majapahit","Raden Wijaya mendirikan Majapahit di Jawa Timur. Kerajaan ini menjadi besar di masa Hayam Wuruk."],
+["1602","VOC berdiri","Kongsi dagang Belanda mulai menguasai perdagangan rempah di Nusantara."],
+["1908","Budi Utomo","Organisasi modern pertama yang menandai kebangkitan nasional (20 Mei)."],
+["1928","Sumpah Pemuda","Pemuda dari berbagai daerah berikrar bertanah air, berbangsa, dan berbahasa satu (28 Oktober)."],
+["1942","Jepang tiba","Belanda menyerah di Kalijati (8 Maret) dan pendudukan Jepang dimulai."],
+["1945","Proklamasi","Soekarno dan Hatta memproklamasikan kemerdekaan pada 17 Agustus di Jakarta."]];
+events.push(["1959","Dekrit Presiden","Kembali ke UUD 1945 dan dimulainya Demokrasi Terpimpin (5 Juli)."],["1966","Supersemar","Surat Perintah Sebelas Maret yang membuka jalan bagi Orde Baru (11 Maret)."],["1998","Reformasi","Soeharto mundur pada 21 Mei 1998 dan era demokratisasi dimulai."]);
+events.splice(events.length-3,0,["1949","Kedaulatan","Belanda menyerahkan kedaulatan lewat Konferensi Meja Bundar (27 Desember)."]);
+const track=document.getElementById('track'),detail=document.getElementById('detail');
+events.forEach((e,i)=>{const b=document.createElement('button');b.className='node';b.setAttribute('aria-pressed','false');b.innerHTML='<i></i><b>'+e[0]+'</b><span>'+e[1]+'</span>';b.onclick=()=>pick(i);track.appendChild(b)});
+function pick(i){[...track.children].forEach((n,j)=>n.setAttribute('aria-pressed',j===i));detail.innerHTML='<strong>'+events[i][0]+': '+events[i][1]+'</strong>'+events[i][2]}
+pick(events.length-1);
+setTimeout(()=>{track.scrollLeft=track.scrollWidth},50);
+
+const topics={Kerajaan:[
+["Kerajaan Hindu tertua di Indonesia adalah...",["Kutai","Sriwijaya","Majapahit","Mataram Kuno"],0,"Kutai di Kalimantan Timur, dibuktikan oleh prasasti Yupa dari abad ke-4."],
+["Sumpah Palapa diucapkan oleh...",["Hayam Wuruk","Gajah Mada","Raden Wijaya","Mulawarman"],1,"Gajah Mada bersumpah menyatukan Nusantara saat menjabat Mahapatih Majapahit."],
+["Pusat kerajaan Sriwijaya berada di sekitar kota...",["Yogyakarta","Surabaya","Palembang","Makassar"],2,"Sriwijaya berpusat di sekitar Palembang, Sumatra Selatan."]],
+Kolonial:[
+["VOC didirikan pada tahun...",["1511","1602","1830","1908"],1,"VOC berdiri pada 1602 sebagai kongsi dagang Belanda."],
+["Tanam Paksa (Cultuurstelsel) mulai diterapkan pada tahun...",["1619","1745","1830","1901"],2,"Diterapkan pada 1830 oleh Gubernur Jenderal Van den Bosch."],
+["Sebelum bernama Batavia, kota itu bernama...",["Sunda Kelapa","Jayakarta","Banten","Cirebon"],1,"J.P. Coen merebut Jayakarta pada 1619 lalu menamainya Batavia."]],
+Kebangkitan:[
+["Budi Utomo berdiri pada...",["20 Mei 1908","28 Oktober 1928","17 Agustus 1945","2 Mei 1889"],0,"Tanggal 20 Mei 1908 diperingati sebagai Hari Kebangkitan Nasional."],
+["Sumpah Pemuda diikrarkan pada...",["20 Mei 1908","28 Oktober 1928","10 November 1945","1 Juni 1945"],1,"Diikrarkan pada penutupan Kongres Pemuda II, 28 Oktober 1928."],
+["Lagu Indonesia Raya pertama kali diperdengarkan oleh W.R. Supratman dengan...",["Gitar","Piano","Biola","Suling"],2,"Beliau memainkannya dengan biola di Kongres Pemuda II."]],
+Proklamasi:[
+["Siapa yang mengetik naskah proklamasi?",["Sayuti Melik","Fatmawati","Ahmad Soebardjo","Soekarno"],0,"Naskah tulisan tangan Soekarno diketik oleh Sayuti Melik."],
+["Peristiwa golongan muda membawa Soekarno-Hatta ke luar kota disebut...",["Peristiwa Surabaya","Rengasdengklok","Bandung Lautan Api","Serangan Umum"],1,"Rengasdengklok terjadi 16 Agustus 1945, sehari sebelum proklamasi."],
+["Proklamasi dibacakan di...",["Gedung Sate","Istana Merdeka","Jl. Pegangsaan Timur 56","Lapangan Ikada"],2,"Proklamasi dibacakan di kediaman Soekarno di Jalan Pegangsaan Timur 56, Jakarta."]],Islam:[
+["Kerajaan Islam pertama di Indonesia adalah...",["Samudra Pasai","Demak","Mataram Islam","Ternate"],0,"Samudra Pasai di Aceh Utara berdiri pada abad ke-13."],
+["Kerajaan Islam pertama di Pulau Jawa adalah...",["Banten","Demak","Cirebon","Pajang"],1,"Demak didirikan Raden Patah pada akhir abad ke-15."],
+["Sultan Agung menyerang VOC di Batavia pada 1628 dan 1629. Ia raja dari...",["Mataram Islam","Demak","Gowa-Tallo","Aceh"],0,"Sultan Agung memimpin Mataram Islam dan dua kali menyerang Batavia."]],
+Jepang:[
+["Belanda menyerah kepada Jepang di Kalijati pada...",["Maret 1942","Januari 1945","Agustus 1945","Mei 1940"],0,"Penyerahan terjadi pada 8 Maret 1942."],
+["Organisasi militer bentukan Jepang beranggotakan pemuda Indonesia (1943) adalah...",["KNIL","PETA","TKR","Cakrabirawa"],1,"PETA (Pembela Tanah Air) dibentuk pada 1943."],
+["Pada 1 Juni 1945 Soekarno menyampaikan gagasan Pancasila dalam sidang...",["BPUPKI","PPKI","KNIP","Volksraad"],0,"Sidang BPUPKI membahas dasar negara sebelum kemerdekaan."]],
+Perjuangan:[
+["Pertempuran Surabaya 10 November 1945 diperingati sebagai Hari...",["Pahlawan","Pendidikan","Sumpah Pemuda","Kebangkitan Nasional"],0,"Tanggal 10 November ditetapkan sebagai Hari Pahlawan."],
+["Serangan Umum 1 Maret 1949 dilancarkan di kota...",["Bandung","Yogyakarta","Semarang","Medan"],1,"Serangan di Yogyakarta membuktikan kepada dunia bahwa TNI masih ada."],
+["Belanda menyerahkan kedaulatan kepada Indonesia pada...",["27 Desember 1949","17 Agustus 1945","1 Maret 1949","15 Agustus 1950"],0,"Hasil Konferensi Meja Bundar: penyerahan kedaulatan 27 Desember 1949."]],"Orde Lama":[
+["Konferensi Asia-Afrika 1955 diselenggarakan di kota...",["Bandung","Jakarta","Yogyakarta","Surabaya"],0,"KAA digelar di Bandung pada 18 sampai 24 April 1955."],
+["Pemilihan umum pertama di Indonesia berlangsung pada tahun...",["1945","1955","1971","1999"],1,"Pemilu 1955 memilih anggota DPR dan Konstituante."],
+["Salah satu isi Dekrit Presiden 5 Juli 1959 adalah...",["Kembali ke UUD 1945","Berlakunya UUDS 1950","Pembentukan RIS","Pembubaran PPKI"],0,"Dekrit juga membubarkan Konstituante."]],
+"Orde Baru":[
+["Supersemar dikeluarkan pada tanggal...",["11 Maret 1966","5 Juli 1959","21 Mei 1998","30 September 1965"],0,"Supersemar adalah Surat Perintah Sebelas Maret 1966."],
+["Trilogi Pembangunan terdiri dari stabilitas nasional, pertumbuhan ekonomi, dan...",["Pemerataan hasil pembangunan","Nasionalisasi aset","Demokrasi Terpimpin","Politik Etis"],0,"Trilogi Pembangunan menjadi dasar kebijakan ekonomi Orde Baru."],
+["Program pembangunan lima tahunan di masa Orde Baru disebut...",["Repelita","Trikora","Dwikora","Nasakom"],0,"Repelita adalah Rencana Pembangunan Lima Tahun, dimulai 1969."]],
+Reformasi:[
+["Presiden Soeharto mengundurkan diri pada...",["21 Mei 1998","12 Mei 1998","1 Juni 1999","17 Agustus 1998"],0,"Setelah mundur, B.J. Habibie dilantik sebagai presiden."],
+["Reformasi 1998 dipicu oleh krisis...",["Moneter","Pangan","Energi","Pendidikan"],0,"Krisis moneter 1997 memukul ekonomi dan memicu tuntutan perubahan."],
+["Salah satu hasil Reformasi adalah...",["Pemilihan presiden langsung","Dwifungsi ABRI","Demokrasi Terpimpin","Tanam Paksa"],0,"Presiden dipilih langsung oleh rakyat sejak 2004."]]};
+const names=Object.keys(topics);let cur='Semua',qs=[],i=0,score=0;
+const chips=document.getElementById('chips'),stage=document.getElementById('stage'),prog=document.getElementById('prog');
+['Semua',...names].forEach(n=>{const c=document.createElement('button');c.className='chip';c.textContent=n==='Semua'?'Semua topik':n;c.dataset.t=n;c.onclick=()=>start(n);chips.appendChild(c)});
+function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function start(t){cur=t;i=0;score=0;const pool=t==='Semua'?names.flatMap(n=>topics[n]):topics[t];qs=shuffle(pool).map(q=>{const o=q[1].map((x,k)=>({x,r:k===q[2]}));return{q:q[0],o:shuffle(o),e:q[3]}});[...chips.children].forEach(c=>c.setAttribute('aria-pressed',c.dataset.t===t));show()}
+function show(){
+prog.style.width=(i/qs.length*100)+'%';
+if(i>=qs.length){const p=Math.round(score/qs.length*100);prog.style.width='100%';
+stage.innerHTML='<div class="score">'+score+'/'+qs.length+'</div><p>'+(p===100?'Sempurna! Kamu menguasai topik ini.':p>=60?'Bagus! Baca lagi materi yang masih terlewat, lalu coba sekali lagi.':'Belum maksimal. Baca materinya dulu, lalu ulangi kuisnya.')+'</p><button class="btn" id="again">Ulangi kuis</button>';
+document.getElementById('again').onclick=()=>start(cur);return}
+const q=qs[i];stage.innerHTML='<p style="color:var(--muted);margin:0 0 8px">Pertanyaan '+(i+1)+' dari '+qs.length+'</p><div class="q"></div><div class="opts"></div><div class="fb" aria-live="polite"></div>';
+stage.querySelector('.q').textContent=q.q;
+const box=stage.querySelector('.opts');
+q.o.forEach(op=>{const b=document.createElement('button');b.className='opt';b.textContent=op.x;b.onclick=()=>answer(b,op);box.appendChild(b)})}
+function answer(btn,op){const q=qs[i];const all=[...stage.querySelectorAll('.opt')];all.forEach((b,k)=>{b.disabled=true;if(q.o[k].r)b.classList.add('right')});
+if(op.r)score++;else btn.classList.add('wrong');
+stage.querySelector('.fb').textContent=(op.r?'Benar. ':'Kurang tepat. ')+q.e;
+const n=document.createElement('button');n.className='btn';n.textContent=i+1<qs.length?'Pertanyaan berikutnya':'Lihat hasil';n.onclick=()=>{i++;show()};stage.appendChild(n);n.focus()}
+start('Semua');
+
+const root=document.documentElement;
+document.getElementById('theme').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;root.dataset.theme=dark?'light':'dark'};
+</script>
+</body>
+</html>
